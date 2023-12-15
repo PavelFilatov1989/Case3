@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Заказы</h1>
+    {% for or in orders %}
+        <h3>Заказ номер {{ or.id }}:</h3>
+        <p>Заказчик: {{ or.user_id.username }}</p>
+        <p>Адрес доставки: {{ or.address }}</p>
+        <p>Дата создания заказа: {{ or.create }}</p>
+        <p>Состав заказа:</p>
+        {% for pr in or.products.all %}
+            <p><li>{{pr.name}}</li>
+        {% endfor %}
+        <p>Комментарий: {{ or.comments }}</p>
+    {% endfor %}
+{% endblock %}

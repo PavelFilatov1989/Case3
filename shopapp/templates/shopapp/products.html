@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Товары</h1>
+    {% for pr in products %}
+    <h2>{{ pr.name }}</h2>
+    <p>{{ pr.content }}</p>
+    <p>Цена: {{ pr.price }}</p>
+    <p>Количество: {{ prod.quantity }}</p>
+    {% if prod.available %}
+    <p>Доступно для заказа</p>
+    <p>Дата изменения: {{ prod.created }}</p>
+    {% endif %}
+{% endfor %}
+{% endblock %}
